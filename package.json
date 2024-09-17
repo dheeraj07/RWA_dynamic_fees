@@ -1,0 +1,13 @@
+{
+  "name": "chainlink-rwa-dynamic-fees",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "scripts": {
+    "build": "forge build",
+    "test": "forge test -vvv"
+  },
+  "dependencies": {
+    "@chainlink/contracts": "^1.2.0"
+  }
+}
