@@ -98,7 +98,7 @@ The `script/` directory includes example flows for deploying and interacting wit
    forge script script/02_AddLiquidity.s.sol --rpc-url <RPC_URL> --broadcast
    ```
 
-> The scripts use hardcoded example Goerli addresses (now deprecated); update the `GOERLI_POOLMANAGER` value in all scripts (the name is historical), plus the token addresses and `HOOK_ADDRESS` constants in `script/01_CreatePool.s.sol` and `script/02_AddLiquidity.s.sol`, for your target network (e.g., Sepolia). You can find current PoolManager and token addresses in the Uniswap v4 and Chainlink documentation for the network you target.
+> The scripts use hardcoded example Goerli addresses (now deprecated); update the `GOERLI_POOLMANAGER` value in `script/00_SwapHook.s.sol`, `script/01_CreatePool.s.sol`, and `script/02_AddLiquidity.s.sol` (the name is historical), plus the token addresses and `HOOK_ADDRESS` constants in `script/01_CreatePool.s.sol` and `script/02_AddLiquidity.s.sol`, for your target network (e.g., Sepolia). You can find current PoolManager and token addresses in the Uniswap v4 and Chainlink documentation for the network you target.
 
 ## Chainlink Functions Usage
 
