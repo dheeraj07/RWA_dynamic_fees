@@ -81,8 +81,6 @@ forge build
 forge test -vvv
 ```
 
-> Note: `make test` is not marked as phony in the Makefile, so `forge test` is the recommended command.
-
 ## Scripts (Local / Testnet)
 
 The `script/` directory includes example flows for deploying and interacting with a v4 pool.
@@ -100,7 +98,7 @@ The `script/` directory includes example flows for deploying and interacting wit
    forge script script/02_AddLiquidity.s.sol --rpc-url <RPC_URL> --broadcast
    ```
 
-> The scripts are currently configured for Goerli addresses; update constants as needed for your target network.
+> The scripts use example Goerli addresses (now deprecated); update constants for your target network (e.g., Sepolia).
 
 ## Chainlink Functions Usage
 
