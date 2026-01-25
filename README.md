@@ -98,7 +98,7 @@ The `script/` directory includes example flows for deploying and interacting wit
    forge script script/02_AddLiquidity.s.sol --rpc-url <RPC_URL> --broadcast
    ```
 
-> The scripts use hardcoded example Goerli addresses (now deprecated); update `GOERLI_POOLMANAGER` in all scripts, plus the token addresses and `HOOK_ADDRESS` constants in `script/01_CreatePool.s.sol` and `script/02_AddLiquidity.s.sol`, for your target network (e.g., Sepolia). You can find current PoolManager and token addresses in the Uniswap v4 and Chainlink documentation for the network you target.
+> The scripts use hardcoded example Goerli addresses (now deprecated); update the `GOERLI_POOLMANAGER` value in all scripts (the name is historical), plus the token addresses and `HOOK_ADDRESS` constants in `script/01_CreatePool.s.sol` and `script/02_AddLiquidity.s.sol`, for your target network (e.g., Sepolia). You can find current PoolManager and token addresses in the Uniswap v4 and Chainlink documentation for the network you target.
 
 ## Chainlink Functions Usage
 
@@ -109,7 +109,7 @@ The `script/` directory includes example flows for deploying and interacting wit
 
 ## Security Considerations
 
-- The external API URL is hardcoded inside `FunctionsConsumer`, which makes the request target immutable, creates a single point of failure, and can expose you to endpoint manipulation or untrusted data if the API is compromised. For production, consider passing the URL via constructor args or storing it in configurable storage with access controls and data integrity checks.
+- The external API URL is hardcoded inside `FunctionsConsumer`. This creates several risks: immutable request targets, a single point of failure, and exposure to endpoint manipulation or untrusted data if the API is compromised. For production, consider passing the URL via constructor args or storing it in configurable storage with access controls and data integrity checks.
 
 ## Notes & Limitations
 
