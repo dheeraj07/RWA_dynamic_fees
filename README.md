@@ -98,7 +98,7 @@ The `script/` directory includes example flows for deploying and interacting wit
    forge script script/02_AddLiquidity.s.sol --rpc-url <RPC_URL> --broadcast
    ```
 
-> The scripts use example Goerli addresses (now deprecated); update the `GOERLI_POOLMANAGER`, token addresses, and `HOOK_ADDRESS` constants in `script/00_SwapHook.s.sol`, `script/01_CreatePool.s.sol`, and `script/02_AddLiquidity.s.sol` for your target network (e.g., Sepolia).
+> The scripts use example Goerli addresses (now deprecated); update the `GOERLI_POOLMANAGER`, token addresses, and `HOOK_ADDRESS` constants in `script/00_SwapHook.s.sol`, `script/01_CreatePool.s.sol`, and `script/02_AddLiquidity.s.sol` for your target network (e.g., Sepolia). You can find current PoolManager and token addresses in the Uniswap v4 and Chainlink documentation for the network you target.
 
 ## Chainlink Functions Usage
 
@@ -107,9 +107,12 @@ The `script/` directory includes example flows for deploying and interacting wit
 3. Call `sendRequest(subscriptionId, args)` to fetch the latest price + volatility.
 4. `DynamicFeeOverride` will read the stored volatility and adjust fees on swap.
 
-## Notes & Limitations
+## Security Considerations
 
 - The external API URL is hardcoded inside `FunctionsConsumer`, which makes the request target immutable and can expose you to unexpected data sources. For production, consider passing the URL via constructor args or storing it in configurable storage with access controls.
+
+## Notes & Limitations
+
 - This repo is a proof-of-concept and is **not production audited**.
 
 ## License
