@@ -33,7 +33,7 @@ Chainlink Functions -> FunctionsConsumer -> DynamicFeeOverride -> Uniswap v4 Poo
 ### Dynamic Fee Model
 
 - **Base Fee:** 0.10% (1000 bps)
-- **Volatility Threshold:** 20% (scaled by 1000)
+- **Volatility Threshold:** 20% (represented as 20000 when scaled by 1000)
 - **Volatility Factor:** 0.05% per 0.01 volatility above threshold
 - **Fee Bounds:** 0.05% (min) to 1.00% (max)
 
@@ -98,7 +98,7 @@ The `script/` directory includes example flows for deploying and interacting wit
    forge script script/02_AddLiquidity.s.sol --rpc-url <RPC_URL> --broadcast
    ```
 
-> The scripts use hardcoded example Goerli addresses (now deprecated); update the `GOERLI_POOLMANAGER`, token addresses, and `HOOK_ADDRESS` constants in `script/00_SwapHook.s.sol`, `script/01_CreatePool.s.sol`, and `script/02_AddLiquidity.s.sol` for your target network (e.g., Sepolia). You can find current PoolManager and token addresses in the Uniswap v4 and Chainlink documentation for the network you target.
+> The scripts use hardcoded example Goerli addresses (now deprecated); update `GOERLI_POOLMANAGER` in all scripts, plus the token addresses and `HOOK_ADDRESS` constants in `script/01_CreatePool.s.sol` and `script/02_AddLiquidity.s.sol`, for your target network (e.g., Sepolia). You can find current PoolManager and token addresses in the Uniswap v4 and Chainlink documentation for the network you target.
 
 ## Chainlink Functions Usage
 
@@ -109,7 +109,7 @@ The `script/` directory includes example flows for deploying and interacting wit
 
 ## Security Considerations
 
-- The external API URL is hardcoded inside `FunctionsConsumer`, which makes the request target immutable, creates a single point of failure, and can expose you to unexpected or malicious data sources if the API is compromised. For production, consider passing the URL via constructor args or storing it in configurable storage with access controls.
+- The external API URL is hardcoded inside `FunctionsConsumer`, which makes the request target immutable, creates a single point of failure, and can expose you to endpoint manipulation or untrusted data if the API is compromised. For production, consider passing the URL via constructor args or storing it in configurable storage with access controls and data integrity checks.
 
 ## Notes & Limitations
 
